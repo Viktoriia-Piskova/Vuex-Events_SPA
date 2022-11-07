@@ -21,7 +21,7 @@ export default new Router({
       props: true
     },
     {
-      path: '/event/create',
+      path: '/event-create',
       name: 'event-create',
       component: EventCreate
     }
