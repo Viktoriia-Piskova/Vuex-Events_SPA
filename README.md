@@ -1,4 +1,4 @@
-# real-world-vue
+# Vuex
 
 ## Project setup
 
