@@ -6,7 +6,7 @@
       <li v-for="cat in categories" :key="cat ">{{ cat }}</li>
     </ul>
     <p>There are {{ catLength }} categories</p>
-    <form>
+    <form @submit.prevent="createEvent">
           <label>Select a category</label>
           <select v-model="event.category">
             <option v-for="cat in categories" :key="cat">{{ cat }}</option>
@@ -54,13 +54,13 @@ export default {
       times.push(i + ':00')
     }
     return {
-      event: this.createFreshEvent(), //use as method insteda of obj to reset later
+      event: this.createFreshEventObject(), //use as method insteda of obj to reset later
       times, //arr of created times
       categories: this.$store.state.categories //pull data from store
     }
   },
   methods: {
-    createFreshEvent() {
+    createFreshEventObject() {
       const user = this.$store.state.user
       const id = Math.floor(Math.random() * 10000000)
       return {
@@ -74,7 +74,21 @@ export default {
         time: '',
         attendees: []
       }
+    },
+    createEvent() {
+      this.$store
+        .dispatch('createEvent', this.event)
+        .then(() => {
+          this.event = this.createFreshEventObject()
+        })
+        .catch(() => {
+          console.log('There is a problem creating your event')
+        })
     }
+    // createEvent() {
+    //   console.log(this.event)
+    //   this.$store.dispatch('createEvent', this.event)
+    // }
   },
   computed: {
     ...mapState(['user']),
