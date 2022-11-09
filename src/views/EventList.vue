@@ -29,6 +29,7 @@ export default {
   computed: {
     page() {
       // What page we're currently on
+      console.log(this.$route.query.page)
       return parseInt(this.$route.query.page)
     },
     hasNextButton() {
