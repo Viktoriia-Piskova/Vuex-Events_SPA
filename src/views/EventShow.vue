@@ -30,14 +30,7 @@ import { mapState } from 'vuex'
 export default {
   props: ['id'],
   created() {
-    this.$store.dispatch('fetchEvent', this.id)
-    // EventService.getEvent(this.id)
-    //   .then(response => {
-    //     this.event = response.data
-    //   })
-    //   .catch(error => {
-    //     console.log('There was an error:', error.response)
-    //   })
+    this.$store.dispatch('event/fetchEvent', this.id)
   },
   computed: mapState({
     event: state => state.event.event

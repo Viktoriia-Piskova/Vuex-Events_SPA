@@ -231,6 +231,20 @@
       "date": "",
       "time": "5:00",
       "attendees": []
+    },
+    {
+      "id": 1017613,
+      "category": "community",
+      "organizer": {
+        "id": "abc123",
+        "name": "John Doe"
+      },
+      "title": "Modules",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
     }
   ]
 }
