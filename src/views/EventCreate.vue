@@ -2,10 +2,6 @@
   <div>
     <h1>Create an event, {{ user.name }}</h1>
     <p>This event was created by {{ user.id }}</p>
-    <ul>
-      <li v-for="cat in categories" :key="cat ">{{ cat }}</li>
-    </ul>
-    <p>There are {{ catLength }} categories</p>
     <form @submit.prevent="createEvent">
           <label>Select a category</label>
           <select v-model="event.category">
@@ -61,7 +57,7 @@ export default {
   },
   methods: {
     createFreshEventObject() {
-      const user = this.$store.state.user
+      const user = this.$store.state.user.user
       const id = Math.floor(Math.random() * 10000000)
       return {
         id: id,
@@ -96,8 +92,8 @@ export default {
   },
   computed: {
     ...mapState(['user']),
-    catLength() {
-      return this.$store.getters.catLength
+    user() {
+      return this.$store.state.user.user
     }
   }
 }

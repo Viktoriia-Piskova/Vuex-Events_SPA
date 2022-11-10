@@ -39,7 +39,9 @@ export default {
     //     console.log('There was an error:', error.response)
     //   })
   },
-  computed: mapState(['event'])
+  computed: mapState({
+    event: state => state.event.event
+  })
 }
 </script>
 <style scoped>
