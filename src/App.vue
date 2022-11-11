@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <NavBar/>
+    <NotificationContainer/>
     <router-view :key="$route.fullPath"/>
   </div>
 </template>
 
 <script>
 import NavBar from '@/components/NavBar.vue'
+import NotificationContainer from '@/components/NotificationContainer.vue'
 
 export default {
   components: {
-    NavBar
+    NavBar,
+    NotificationContainer
   }
 }
 </script>
@@ -94,6 +97,9 @@ small {
 .-text-primary {
   color: #39b982;
 }
+.-text-success {
+  color: #39b982;
+}
 .-text-base {
   color: #000;
 }
@@ -147,6 +153,7 @@ button,
 [type='reset'],
 [type='submit'] {
   -webkit-appearance: none;
+  appearance: none;
 }
 button::-moz-focus-inner,
 [type='button']::-moz-focus-inner,
@@ -186,10 +193,12 @@ textarea {
 }
 [type='search'] {
   -webkit-appearance: textfield;
+  appearance: textfield;
   outline-offset: -2px;
 }
 [type='search']::-webkit-search-decoration {
   -webkit-appearance: none;
+  appearance: none;
 }
 [type='text'],
 [type='number'],
@@ -208,6 +217,7 @@ textarea {
 }
 ::-webkit-file-upload-button {
   -webkit-appearance: button;
+  appearance: button;
   font: inherit;
 }
 [hidden] {
